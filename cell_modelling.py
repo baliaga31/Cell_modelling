@@ -17,7 +17,7 @@ class Cell():
 
   def cell_area(self, x, y):
     self_area = x * y 
-    return self.
+    return self_area
 
 class Protein():
   def __init__(self):
