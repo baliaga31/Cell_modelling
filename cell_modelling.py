@@ -1,4 +1,6 @@
-class Cell():
+#!/usr/bin/python3
+
+class Cell:
   def __init__(self, x, y):
     self.x = 5 
     self.y = 10
@@ -10,8 +12,8 @@ class Cell():
     # raise Exception("You should have called obj.nuclear to set nuc value before trying to get Them.")
     return (self.xnuc, self.ynuc)
 
-  def set_nuclear(self, x, y):
-    self.xnuc = xnuc
+  def set_nuclear(self, xnuc, ynuc):
+    self.xnuc = xnuc 
     self.ynuc = ynuc
 
   def cell_area(self, x, y):
@@ -20,11 +22,11 @@ class Cell():
 
 class Protein(): 
   def __init__(self, x, y): # methode constructeur
-    self.x = x
+    self.x = x # attribut de classe (similaires aux variables)
     self.y = y
 
-  def molecular_weight(self, weight):
-    self.weight = weight
+  def molecular_weight(self, weight): # methode
+    self.weight = weight # attribut de classe
 
   def charge(self):
     pass
