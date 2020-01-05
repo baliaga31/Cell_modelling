@@ -7,22 +7,19 @@ Benoît Aliaga, 2019
 """
 
 class Cell:
-    def __init__(self):
+    def __init__(self, length, width):
         """
         Test
         """
-        self.x = 5
-        self.y = 10
+        self.x = width
+        self.y = length
 
     def cell_area(self):
         area = self.x * self.y
         return area
 
-
 # Main section
 if __name__ == "__main__":
-    my_cell = Cell()
+    my_cell = Cell(2,1)
     print("x = ", my_cell.x, "y = ", my_cell.y)
-    dir(my_cell)
-    my_cell.__doc__
-    #print(my_cell.area())
+    print(my_cell.cell_area())
