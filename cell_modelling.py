@@ -11,7 +11,6 @@ class Cell:
     # if self.xnuc is None or self.ynuc is None:
     # raise Exception("You should have called obj.nuclear to set nuc value before trying to get Them.")
     return (self.xnuc, self.ynuc)
-
   def set_nuclear(self, xnuc, ynuc):
     self.xnuc = xnuc 
     self.ynuc = ynuc
