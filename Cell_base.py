@@ -1,10 +1,18 @@
 #!/usr/bin/python3
 
 """
-Cell_base.py Version 1
-Script qui va modeliser la diffusion d'une proteine dans une cellule
-Benoît Aliaga, 2019
+Cell_base.py
+
+This script modelise the behavior of the proteins inside the cell. 
+
 """
+
+__authors__ = ("Benoit Aliaga")
+__contact__ = ("aliaga.benoit@gmail.com")
+__version__ = "0.1"
+__date__ = "06/06/2020"
+
+
 
 class Cell:
     def __init__(self, length, width):
