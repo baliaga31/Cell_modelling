@@ -15,26 +15,37 @@ __date__ = "06/06/2020"
 import math
 from tkinter import *
 
-#class Cell:
-#    def __init__(self, length, width):
-#        """
-#           Initialisation d'un objet
-#           Definition des attributs avec des valeurs par defauts.
-#        """
-#        self.x = length
-#        self.y = width
+class Cell:
+    def __init__(self, length, width):
+        """
+           Initialisation d'un objet
+           Definition des attributs avec des valeurs par defauts.
+        """
+        self.length = length 
+        self.width = width
 
-#    def cell_area(self):
-#        """
-#           Methode qui calcule la surface de la cellule.
-#        """
-#        area = self.x * self.y
-#        return area
+    def cell_size(self):
+        """
+           Give the cell size.
+        """
+        print("The cell has a {} length and {} width.".format(self.length, self.width))
+        
+    def cell_area(self):
+        """
+           This method give you the area of the cell.
+        """
+        area = self.length * self.width
+        return area
 
-#    def nuclear_(self):
-#        """
-#           Dessin d'un canvas
-#        """
+    def nuclear_(self):
+        """
+           Methode qui defini un noyau dans la cellule
+        """
+        print("The nuclear has a {} length and {} width".format(self.nuclear_length, self.nuclear_width))
+
+class Nuclear():
+    def __init(self):
+        pass
 
 class Protein():
     def __init__(self, pos_x, pos_y, vx, vy, mw):
@@ -52,9 +63,6 @@ class Protein():
            Position of the protein
         """
         return("The cell coordinates are: x = {} and y = {}".format(self.coord_x, self.coord_y)) 
-
-    def nuclear_area(self):
-        pass
     
     def coordo(self):
         """
@@ -65,13 +73,23 @@ class Protein():
 
 # Main section
 if __name__ == "__main__":
+    my_cell = Cell(500,100)
+    my_cell.cell_size()
+    my_protein = Protein(300, 100, 4, 5, 6)
+    
+    
+    print("We will open the canvas.")
+    root = Tk()
+    canvas = Canvas(root, width = 800, height = 400, background = "white")
+    canvas.create_rectangle(10, 10, 10 + my_cell.length, 10 + my_cell.width, fill = "white", width = 3, outline = "black") # create a cell in Tkinter
+
+    canvas.create_oval(20, 20, 30, 30, width = 1, fill = "grey")
+    
+    canvas.grid()
+    root.mainloop()
+
     my_prot = Protein(2,1,4,5,10)
-    print(my_prot)
     print(my_prot.init_position())
     
-    #my_cell = Cell(2,1)
-    #print("Width = ", my_cell.x, "Length = ", my_cell.y)
-    #print("The cell area is:", my_cell.cell_area())
-    #my_prot = Protein(4,6)
-    #print("The coordinate of my protein is:", my_prot.prot_coord())
-
+    my_cell = Cell(2,1)
+    print("The cell area is:", my_cell.cell_area())
