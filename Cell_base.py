@@ -10,7 +10,7 @@ This script modelise the behavior of the proteins inside the cell.
 __authors__ = ("Benoit Aliaga")
 __contact__ = ("aliaga.benoit@gmail.com")
 __version__ = "0.1"
-__date__ = "06/06/2020"
+__date__ = "09/06/2020"
 
 import math
 from tkinter import *
@@ -36,12 +36,6 @@ class Cell:
         """
         area = self.length * self.width
         return area
-
-    def nuclear_(self):
-        """
-           Methode qui defini un noyau dans la cellule
-        """
-        print("The nuclear has a {} length and {} width".format(self.nuclear_length, self.nuclear_width))
 
 class Nuclear():
     def __init(self):
@@ -71,25 +65,38 @@ class Protein():
         position = self.coordx + self.coordy
         return position
 
+def deplacement():
+    global dx, dy
+    canvas.move(my_prot, dx, dy)
+    root.after(500, deplacement)
+
+dx = 10
+dy = 0
+ 
 # Main section
 if __name__ == "__main__":
     my_cell = Cell(500,100)
     my_cell.cell_size()
     my_protein = Protein(300, 100, 4, 5, 6)
     
-    
     print("We will open the canvas.")
     root = Tk()
     canvas = Canvas(root, width = 800, height = 400, background = "white")
+    canvas.pack(padx = 10, pady = 10)
+
+    Quit_button = Button(root, text = "Quit Cell Modelling", command = root.destroy)
+    Quit_button.pack()
+    
     canvas.create_rectangle(10, 10, 10 + my_cell.length, 10 + my_cell.width, fill = "white", width = 3, outline = "black") # create a cell in Tkinter
 
-    canvas.create_oval(20, 20, 30, 30, width = 1, fill = "grey")
+    my_prot = canvas.create_oval(20, 20, 30, 30, width = 1, fill = "grey")
+
+    deplacement()
     
-    canvas.grid()
     root.mainloop()
 
-    my_prot = Protein(2,1,4,5,10)
-    print(my_prot.init_position())
+#    my_prot = Protein(2,1,4,5,10)
+#    print(my_prot.init_position())
     
-    my_cell = Cell(2,1)
-    print("The cell area is:", my_cell.cell_area())
+#    my_cell = Cell(2,1)
+#    print("The cell area is:", my_cell.cell_area())
